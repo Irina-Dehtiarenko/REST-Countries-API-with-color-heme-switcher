@@ -1,0 +1,79 @@
+/* - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
+
+:root {
+  --dark-blue: hsl(209, 23%, 22%);
+  --very-dark-blue: hsl(207, 26%, 17%);
+  --dark-blue-more: hsl(200, 15%, 8%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* i {
+  width: 20px;
+  height: 30px;
+} */
+
+body {
+  background: var(--very-light-gray);
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--dark-blue-more);
+}
+
+body.dark {
+  background: var(--very-dark-blue);
+  color: var(--white);
+}
+
+body.dark header {
+  background-color: var(--dark-blue);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white);
+  /* align-items: center; */
+}
+.dark-mode {
+  display: flex;
+  position: relative;
+  align-items: center;
+  text-align: center;
+}
+.dark-mode button {
+  /* position: absolute;
+  top: 10px;
+  left: -10px; */
+  padding: 0 2px;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+.dark-mode button:hover {
+  background-color: aliceblue;
+  border-radius: 50%;
+}
+.dark-mode label {
+  margin: 0 25px 0 5px;
+  font-size: 14px;
+}
+.moon {
+  width: 10px;
+  height: 10px;
+}
+.moon_dark {
+}
+
+.moon_light {
+}
+.invisible {
+  display: none;
+}
