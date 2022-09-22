@@ -34,14 +34,17 @@ body.dark {
   color: var(--white);
 }
 
-body.dark header {
-  background-color: var(--dark-blue);
-}
 header {
   display: flex;
   justify-content: space-between;
+  padding: 20px 50px;
   background-color: var(--white);
-  /* align-items: center; */
+}
+body.dark header {
+  background-color: var(--dark-blue);
+}
+h1 {
+  font-size: 30px;
 }
 .dark-mode {
   display: flex;
@@ -50,30 +53,57 @@ header {
   text-align: center;
 }
 .dark-mode button {
-  /* position: absolute;
-  top: 10px;
-  left: -10px; */
-  padding: 0 2px;
+  padding: 3px 4px;
   border: none;
   background: rgba(255, 255, 255, 0);
 }
 .dark-mode button:hover {
-  background-color: aliceblue;
+  background-color: var(--dark-blue-more);
   border-radius: 50%;
 }
+body.dark .dark-mode button:hover {
+  background-color: var(--white);
+}
+.dark-mode button i {
+  color: var(--dark-blue-more);
+}
+body.dark .dark-mode button i {
+  color: var(--white);
+}
+.dark-mode button:hover i {
+  color: var(--white);
+}
+body.dark .dark-mode button:hover i {
+  color: var(--dark-blue-more);
+}
 .dark-mode label {
-  margin: 0 25px 0 5px;
-  font-size: 14px;
-}
-.moon {
-  width: 10px;
-  height: 10px;
-}
-.moon_dark {
+  margin-left: 5px;
+  font-size: 16px;
 }
 
-.moon_light {
-}
 .invisible {
   display: none;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.choice input,
+.choice select {
+  padding: 15px;
+  border: none;
+  color: var(--dark-blue-more);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+.choice input:focus,
+.choice select:focus {
+  border: none;
+  outline: none;
+}
+.choice input {
+  min-width: 200px;
 }
