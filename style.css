@@ -37,8 +37,9 @@ body.dark {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
+  padding: 20px 8vw;
   background-color: var(--white);
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
 }
 body.dark header {
   background-color: var(--dark-blue);
@@ -56,6 +57,7 @@ h1 {
   padding: 3px 4px;
   border: none;
   background: rgba(255, 255, 255, 0);
+  transition: 0.6s;
 }
 .dark-mode button:hover {
   background-color: var(--dark-blue-more);
@@ -88,16 +90,36 @@ body.dark .dark-mode button:hover i {
 .choice {
   display: flex;
   justify-content: space-between;
-  padding: 50px;
+  padding: 50px 8vw 0 8vw;
 }
 
 .choice input,
 .choice select {
   padding: 15px;
   border: none;
+  background: var(--white);
   color: var(--dark-blue-more);
   font-family: "Nunito Sans", sans-serif;
   font-weight: 600;
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.1s;
+  border-radius: 5px;
+}
+
+body.dark .choice input,
+body.dark .choice select {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.choice input:hover,
+.choice select:hover {
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+body.dark .choice input:hover,
+.choice select:hover {
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.6);
 }
 .choice input:focus,
 .choice select:focus {
@@ -105,5 +127,85 @@ body.dark .dark-mode button:hover i {
   outline: none;
 }
 .choice input {
-  min-width: 200px;
+  min-width: 35vw;
+}
+.choice input::placeholder {
+  color: var(--dark-gray);
+}
+body.dark .choice input::placeholder {
+  color: var(--white);
+}
+/* .choice select::after {
+  border: none;
+  border-radius: 5px;
+
+} */
+option {
+  /* position: absolute; */
+  /* background-color: DodgerBlue; */
+  /* top: 100%;
+  left: 0;
+  right: 0; */
+  /* z-index: 99; */
+}
+div.countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 5vw;
+}
+div.country {
+  margin: 40px;
+  width: 250px;
+  height: 320px;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+body.dark div.country {
+  background-color: var(--dark-blue);
+}
+div.country:hover {
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.4);
+}
+body.dark div.country:hover {
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.6);
+}
+div.country .img {
+  width: 250px;
+  height: 150px;
+  background-color: var(--dark-gray);
+  border-radius: 5px 5px 0 0;
+}
+div.country h2 {
+  margin: 20px 0 10px 20px;
+  font-size: 19px;
+}
+
+div.country ul {
+  margin: 10px 0 10px 20px;
+  font-size: 14px;
+  list-style: none;
+  line-height: 25px;
+}
+div.country ul li {
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+div.country ul li span {
+  font-weight: lighter;
+}
+
+@media (max-width: 1485px) {
+  header {
+    padding: 20px 7.5vw;
+  }
+  .choice {
+    padding: 50px 7.5vw;
+  }
+  div.country {
+    margin: 30px;
+  }
 }
