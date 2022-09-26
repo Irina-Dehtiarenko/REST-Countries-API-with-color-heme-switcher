@@ -94,7 +94,9 @@ body.dark .dark-mode button:hover i {
 }
 
 .choice input,
-.choice select {
+.choice select,
+button.back_home,
+.border-country {
   padding: 15px;
   border: none;
   background: var(--white);
@@ -107,18 +109,24 @@ body.dark .dark-mode button:hover i {
 }
 
 body.dark .choice input,
-body.dark .choice select {
+body.dark .choice select,
+body.dark button.back_home,
+body.dark .border-country {
   background-color: var(--dark-blue);
   color: var(--white);
 }
 
 .choice input:hover,
-.choice select:hover {
+.choice select:hover,
+button.back_home:hover,
+.border-country:hover {
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
 }
 
 body.dark .choice input:hover,
-.choice select:hover {
+.choice select:hover,
+button.back_home:hover,
+body.dark .border-country:hover {
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.6);
 }
 .choice input:focus,
@@ -138,7 +146,7 @@ body.dark .choice input::placeholder {
 /* .choice select::after {
   border: none;
   border-radius: 5px;
-
+  
 } */
 option {
   /* position: absolute; */
@@ -148,6 +156,7 @@ option {
   right: 0; */
   /* z-index: 99; */
 }
+
 div.countries {
   display: flex;
   flex-wrap: wrap;
@@ -184,18 +193,77 @@ div.country h2 {
   font-size: 19px;
 }
 
-div.country ul {
+div.country ul,
+ul {
   margin: 10px 0 10px 20px;
   font-size: 14px;
   list-style: none;
   line-height: 25px;
 }
-div.country ul li {
+div.country ul li,
+ul li,
+.border-countries p {
   letter-spacing: 1px;
   font-weight: bold;
 }
-div.country ul li span {
+span {
   font-weight: lighter;
+}
+
+/* styles page with details */
+button.back_home {
+  margin: 60px 8vw;
+  padding: 10px 40px;
+  word-spacing: 15px;
+}
+.details {
+  display: flex;
+
+  justify-content: space-between;
+  margin: 0 8vw;
+}
+.flag_img {
+  width: 500px;
+  height: 350px;
+
+  background-color: var(--dark-blue);
+}
+div.country_details h2 {
+  margin: 40px 0;
+  font-size: 32px;
+}
+
+.country_details {
+  max-width: 600px;
+}
+.all-details {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+.all-details ul {
+  margin: 0;
+}
+.all-details ul li {
+  line-height: 30px;
+}
+.border-countries {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 14px;
+  /* justify-content: center; */
+}
+.all-border-countries {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.border-country {
+  padding: 6px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 1485px) {
@@ -207,5 +275,102 @@ div.country ul li span {
   }
   div.country {
     margin: 30px;
+  }
+}
+@media (max-width: 1336px) {
+  .country_details {
+    max-width: 450px;
+  }
+  .all-details {
+    /* max-width: 450px; */
+    flex-direction: column;
+  }
+  div.country_details h2 {
+    margin: 8px 0;
+  }
+}
+@media (max-width: 1156px) {
+  .country_details {
+    max-width: 300px;
+  }
+  .border-countries {
+    align-items: flex-start;
+  }
+  .border-countries p {
+    margin: 0 0 10px 5px;
+  }
+  .all-details {
+    flex-direction: column;
+  }
+  .border-countries {
+    flex-direction: column;
+  }
+  /* .all-details {
+    width: 300px;
+  } */
+}
+
+@media (max-width: 1068px) {
+  .details {
+    flex-direction: column;
+    align-items: center;
+  }
+  div.country_details {
+    max-width: 500px;
+  }
+  div.country_details h2 {
+    margin: 30px 0;
+  }
+  .all-details {
+    flex-direction: row;
+    width: 600px;
+  }
+  .border-countries {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 500px) {
+  /* the same for 375px - mobile */
+
+  /* the home page */
+
+  header {
+    width: 100%;
+  }
+  h1 {
+    font-size: 16px;
+  }
+  .dark-mode label {
+    font-size: 10px;
+  }
+  .choice {
+    flex-direction: column;
+  }
+  .searcher input {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  /*the details page */
+  button.back_home {
+    margin-left: 35px;
+  }
+  .flag_img {
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+  }
+  div.country_details {
+    width: 300px;
+  }
+  .all-details {
+    flex-direction: column;
+    min-height: 350px;
+  }
+  .border-countries {
+    flex-direction: column;
+  }
+  .all-details ul li {
+    line-height: 35px;
   }
 }

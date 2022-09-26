@@ -18,13 +18,13 @@
     ></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="dark">
-  <!-- <body> -->
+  <!-- <body class="dark"> -->
+  <body>
     <!-- Desktop strukture -->
     <header>
       <h1>Where in the world?</h1>
 
-      <div class="dark-mode">
+      <div class="dark-mode" >
         <button id="dark_mode">
 
           <i class="fa fa-solid fa-moon" aria-hidden="true"></i>
@@ -33,8 +33,13 @@
         <label for="dark_mode">Dark Mode</label>
       </div>
     </header>
+
+    <!-- Home page -->
+    <!-- ----------------------- -->
+
     <main>
 
+     <div class="home_page">
       <div class="choice">
         <div class="searcher">
      	
@@ -130,6 +135,54 @@
         </div>
       </div>
 
+     </div>
+      
+      <!-- ----------------------- -->
+      
+      <!-- Details page -->
+      
+      <!-- ----------------------- -->
+      
+      <div class="detail_page invisible">
+
+        <button class="back_home">
+          <i class="fa fa-solid fa-arrow-left"></i> Back
+        </button>
+        
+        <div class="details">
+          <div class="flag_img"></div>
+          <div class="country_details">
+
+            <h2 class="name-country">Country
+            </h2>
+            <div class="all-details">
+             <ul class="main-details">
+               <li          class="native-name">Native-name:          <span>znaczenie</span> </li>
+               <li          class="population">Population:          <span>znaczenie</span> </li>
+               <li class="region">Region:          <span>znaczenie</span> </li>
+               <li class="sub-region">Sub          Region: <span>znaczenie</span>          </li>
+               <li class="capital">Capital:          <span>znaczenie</span> </li>
+             </ul>
+             <ul class="other-details">
+               <li          class="top-level-domain">Top          Level Domain: <span>znaczenie</span> </li>
+               <li          class="currencies">Currencies:          <span>znaczenie</span> </li>
+               <li          class="languages">Languages:          <span>znaczenie</span> </li>
+             </ul>
+            </div>
+            <div class="border-countries">
+              <p>Border Countries: </p> 
+           <div class="all-border-countries">
+            <div class="border-country">Country</div>
+            <div class="border-country">Country</div>
+            <div class="border-country">Country</div>
+           </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- ----------------------- -->
     </main>
 
     <footer>
