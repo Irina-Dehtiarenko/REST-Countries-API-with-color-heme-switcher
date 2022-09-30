@@ -36,16 +36,45 @@ languages - tak samo: nie wiem jak
 flag - flags.svg
  */
 let region = "";
+let country = "";
 
+//get the last saved mode and apply it to our site
+let theme = localStorage.getItem("theme");
+
+const body = document.querySelector("body");
+const buttonDarkMode = document.querySelector("#dark_mode");
 const divCountries = document.querySelector("div.countries");
 const selectRegion = document.querySelector("select");
+const searcher = document.querySelector("input");
+
+// dark mode
+
+buttonDarkMode.addEventListener("click", () => {
+  body.classList.toggle("dark");
+
+  if (body.className === "dark") {
+    theme = "dark";
+  } else if (body.className !== "dark") {
+    theme = "light";
+  }
+  //get the last saved mode and apply it to our site
+  localStorage.setItem("theme", theme);
+});
+
+if (theme === "dark") {
+  body.classList.add("dark");
+}
+if (theme === "light") {
+  body.classList.remove("dark");
+}
+// pobieranie z api
 
 const showCounties = () => {
-  // dla wszystkich krajów
+  // for all countries
 
   // const url = `https://restcountries.com/v3.1/all`;
 
-  // dla sortowania względem regionu:
+  // for sort by region:
   const url = `https://restcountries.com/v3.1/region/${region}`;
 
   fetch(url, {
@@ -64,7 +93,8 @@ const showCounties = () => {
     .catch((err) => console.log(err));
 };
 
-// funkcja która wyświetla wszystkie potrzebne kraje na 'home page'
+// a function that displays all the necessary countries on the 'home page'
+
 const showCounty = (countries) => {
   //   console.log(randomCountry);
 
@@ -120,11 +150,16 @@ selectRegion.addEventListener("change", (e) => {
   region = e.target.value;
 
   if (region === "") {
-    // treba by było coś z tym wymyślić, żeby w konsoli nie wyskakiwał błąd,albo opisywało na czym polega błąd
+    // you need to think of something about it, so that an error does not pop up in the console, or it describes what the error is
     region = "";
     resetInfo();
   } else {
     showCounties();
     resetInfo();
   }
+});
+
+searcher.addEventListener("search", (e) => {
+  country = e.target.value;
+  resetInfo();
 });
