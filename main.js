@@ -67,15 +67,37 @@ if (theme === "dark") {
 if (theme === "light") {
   body.classList.remove("dark");
 }
-// pobieranie z api
 
-const showCounties = () => {
+// download api with countries by region
+
+const showRegion = () => {
   // for all countries
 
   // const url = `https://restcountries.com/v3.1/all`;
 
   // for sort by region:
   const url = `https://restcountries.com/v3.1/region/${region}`;
+
+  fetch(url, {
+    cache: "no-cache",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Invalid url adress");
+      } else {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      showCounty(data);
+    })
+    .catch((err) => console.log(err));
+};
+
+// download api with  country from search
+const showCounties = () => {
+  const url = `https://restcountries.com/v3.1/name/${country}
+  `;
 
   fetch(url, {
     cache: "no-cache",
@@ -140,12 +162,15 @@ const showCounty = (countries) => {
     liCapital.appendChild(spanCapital);
   });
 };
+
+// the reset function
 const resetInfo = () => {
   region = "";
   divCountries.textContent = "";
   country = "";
 };
 
+// function with  region selection
 selectRegion.addEventListener("change", (e) => {
   region = e.target.value;
 
@@ -154,12 +179,14 @@ selectRegion.addEventListener("change", (e) => {
     region = "";
     resetInfo();
   } else {
-    showCounties();
+    showRegion();
     resetInfo();
   }
 });
 
+// function with  country searching by input
 searcher.addEventListener("search", (e) => {
   country = e.target.value;
+  showCounties();
   resetInfo();
 });
