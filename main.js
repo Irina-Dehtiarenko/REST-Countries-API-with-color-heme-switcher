@@ -35,12 +35,18 @@ languages - tak samo: nie wiem jak
 
 flag - flags.svg
  */
+let region = "";
 
 const divCountries = document.querySelector("div.countries");
-console.log(divCountries);
+const selectRegion = document.querySelector("select");
 
 const showCounties = () => {
-  const url = `https://restcountries.com/v3.1/all`;
+  // dla wszystkich krajów
+
+  // const url = `https://restcountries.com/v3.1/all`;
+
+  // dla sortowania względem regionu:
+  const url = `https://restcountries.com/v3.1/region/${region}`;
 
   fetch(url, {
     cache: "no-cache",
@@ -58,19 +64,11 @@ const showCounties = () => {
     .catch((err) => console.log(err));
 };
 
-// <!-- <div class="country">
-//           <div class="img"></div>
-//           <h2 class="name-country">United State of America</h2>
-//           <ul>
-//             <li class="population">Population: <span>znaczenie</span> </li>
-//             <li class="region">Region: <span>znaczenie</span> </li>
-//             <li class="capital">Capital: <span>33333333333333333333s</span> </li>
-//           </ul>
-//         </div>
-
-const showCounty = (randomCountry) => {
+// funkcja która wyświetla wszystkie potrzebne kraje na 'home page'
+const showCounty = (countries) => {
   //   console.log(randomCountry);
-  randomCountry.forEach((country) => {
+
+  countries.forEach((country) => {
     const divCountry = document.createElement("div");
     divCountry.classList.add("country");
 
@@ -112,5 +110,21 @@ const showCounty = (randomCountry) => {
     liCapital.appendChild(spanCapital);
   });
 };
+const resetInfo = () => {
+  region = "";
+  divCountries.textContent = "";
+  country = "";
+};
 
-showCounties();
+selectRegion.addEventListener("change", (e) => {
+  region = e.target.value;
+
+  if (region === "") {
+    // treba by było coś z tym wymyślić, żeby w konsoli nie wyskakiwał błąd,albo opisywało na czym polega błąd
+    region = "";
+    resetInfo();
+  } else {
+    showCounties();
+    resetInfo();
+  }
+});
