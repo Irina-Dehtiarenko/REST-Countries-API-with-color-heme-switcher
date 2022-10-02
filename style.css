@@ -53,6 +53,9 @@ h1 {
   align-items: center;
   text-align: center;
 }
+.dark-mode label:hover {
+  cursor: pointer;
+}
 .dark-mode button {
   padding: 3px 4px;
   border: none;
@@ -62,6 +65,7 @@ h1 {
 .dark-mode button:hover {
   background-color: var(--dark-blue-more);
   border-radius: 50%;
+  cursor: pointer;
 }
 body.dark .dark-mode button:hover {
   background-color: var(--white);
@@ -121,6 +125,7 @@ body.dark .border-country {
 button.back_home:hover,
 .border-country:hover {
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 body.dark .choice input:hover,
@@ -165,8 +170,8 @@ div.countries {
   margin: 0 5vw;
 }
 div.country {
-  margin: 40px;
-  width: 250px;
+  margin: 35px;
+  width: 260px;
   height: 320px;
   background-color: var(--white);
   border-radius: 5px;
@@ -178,29 +183,31 @@ body.dark div.country {
 }
 div.country:hover {
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 body.dark div.country:hover {
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.6);
 }
 div.country .img {
-  width: 250px;
-  height: 150px;
+  width: 260px;
+  height: 140px;
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
   /* background-color: var(--dark-gray); */
   /* background-image: url("https://flagcdn.com/hm.svg"); */
   /* overflow: hidden; */
-  background-size: cover;
 
+  background-size: cover;
+  background-position: center;
   border-radius: 5px 5px 0 0;
 }
 div.country h2 {
-  margin: 20px 0 10px 20px;
+  padding: 20px 0 10px 20px;
   font-size: 19px;
 }
 
 div.country ul,
 ul {
-  margin: 10px 0 10px 20px;
+  padding: 10px 0 10px 20px;
   font-size: 14px;
   list-style: none;
   line-height: 25px;
@@ -210,6 +217,9 @@ ul li,
 .border-countries p {
   letter-spacing: 1px;
   font-weight: bold;
+}
+.border-countries {
+  padding: 10px 0 10px 15px;
 }
 span {
   font-weight: lighter;
@@ -230,8 +240,10 @@ button.back_home {
 .flag_img {
   width: 500px;
   height: 350px;
-
-  background-color: var(--dark-blue);
+  /* example */
+  /* background-image: url("https://flagcdn.com/hu.svg"); */
+  background-position: center;
+  background-size: cover;
 }
 div.country_details h2 {
   margin: 40px 0;
