@@ -150,7 +150,27 @@ const showCounties = () => {
     .then((data) => {
       showCounty(data);
       showCountryDetail(data);
-      // showBorder(data);
+    })
+    .catch((err) => console.log(err));
+};
+
+// download api with country code about clickes border country
+const showCountryCode = () => {
+  const url = `https://restcountries.com/v3.1/alpha/${country}
+  `;
+
+  fetch(url, {
+    cache: "no-cache",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Invalid url adress");
+      } else {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      showCountryDetail(data);
     })
     .catch((err) => console.log(err));
 };
@@ -161,7 +181,7 @@ const showBorderDetails = (e) => {
   console.log(e.target.textContent);
 
   country = e.target.textContent;
-  showCounties();
+  showCountryCode();
 };
 // funktion with show border countries
 const showBorder = (border) => {
@@ -183,14 +203,18 @@ const showBorder = (border) => {
 const showCountryDetail = (country) => {
   flagImg.style.backgroundImage = `url(${country[0].flags.svg})`;
   nameCountry.textContent = country[0].name.common;
-  nativeName.textContent = ""; //country[0].name.nativeName;
-  population.textContent = country[0].population;
+  nativeName.textContent = Object.values(
+    country[0].name.nativeName
+  )[0].official;
+
+  population.textContent = country[0].population.toLocaleString();
   regionSpan.textContent = country[0].region;
   subRegion.textContent = country[0].subregion;
   capital.textContent = country[0].capital;
   tld.textContent = country[0].tld[0];
-  currencies.textContent = ""; //country[0].currencies[0].name;
-  languages.textContent = ""; //country[0].languages?
+  currencies.textContent = Object.values(country[0].currencies)[0].name;
+
+  languages.textContent = Object.values(country[0].languages);
 
   //details about border country
 
@@ -237,7 +261,9 @@ const showCounty = (countries) => {
     liPopulation.classList.add("population");
     liPopulation.textContent = `Population: `;
     const spanPopulation = document.createElement("span");
-    spanPopulation.textContent = `${country.population}`; //muszą być przycinki poniędzy 000,000,000
+
+    spanPopulation.textContent = `${country.population.toLocaleString()}`;
+    //muszą być przycinki poniędzy 000,000,000
 
     const liRegion = document.createElement("li");
     liRegion.classList.add("region");
