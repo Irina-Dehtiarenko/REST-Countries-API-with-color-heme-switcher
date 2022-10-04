@@ -49,7 +49,7 @@ border country:
 ],
 
  */
-let region = "europe";
+let region = "";
 let country = "";
 
 //get the last saved mode and apply it to our site
@@ -57,7 +57,6 @@ let theme = localStorage.getItem("theme");
 
 // get elements frome home page
 const homePage = document.querySelector(".homepage");
-
 const body = document.querySelector("body");
 const buttonDarkMode = document.querySelector("#dark_mode");
 const divCountries = document.querySelector("div.countries");
@@ -68,7 +67,6 @@ const optionZero = document.querySelector("option.zero");
 // get elements frome details page
 const detailsPage = document.querySelector(".detail_page");
 const buttonBackHome = document.querySelector("button.back_home");
-
 const flagImg = document.querySelector("div.flag_img");
 const nameCountry = document.querySelector(".country_details h2.name-country");
 const nativeName = document.querySelector(".main-details .native-name span");
@@ -76,7 +74,6 @@ const population = document.querySelector(".main-details .population span");
 const regionSpan = document.querySelector(".main-details .region span");
 const subRegion = document.querySelector(".main-details .sub-region span");
 const capital = document.querySelector(".main-details .capital span");
-
 const tld = document.querySelector(".other-details .top-level-domain span");
 const currencies = document.querySelector(".other-details .currencies span");
 const languages = document.querySelector(".other-details .languages span");
@@ -133,9 +130,26 @@ const showRegion = () => {
 };
 
 // download api with  country from search
+const showAllCounties = () => {
+  const url = `https://restcountries.com/v3.1/all`;
+
+  fetch(url, {
+    cache: "no-cache",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Invalid url adress");
+      } else {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      showCounty(data);
+    })
+    .catch((err) => console.log(err));
+};
 const showCounties = () => {
-  const url = `https://restcountries.com/v3.1/name/${country}
-  `;
+  const url = `https://restcountries.com/v3.1/name/${country}`;
 
   fetch(url, {
     cache: "no-cache",
@@ -178,14 +192,12 @@ const showCountryCode = () => {
 // funktion with show details about searching border country
 
 const showBorderDetails = (e) => {
-  console.log(e.target.textContent);
-
   country = e.target.textContent;
   showCountryCode();
 };
+
 // funktion with show border countries
 const showBorder = (border) => {
-  console.log(border);
   let borderCountry = document.createElement("div");
   borderCountry.classList.add("border-country");
   borderCountry.textContent = border;
@@ -310,9 +322,8 @@ selectRegion.addEventListener("change", (e) => {
   searcher.value = "";
 
   if (region === "") {
-    // you need to think of something about it, so that an error does not pop up in the console, or it describes what the error is
-
     resetInfo();
+    showAllCounties();
   } else {
     showRegion();
     resetInfo();
@@ -327,21 +338,28 @@ searcher.addEventListener("search", (e) => {
   selectRegion.value = optionZero.value;
   optionZero.textContent = "Filter by Region";
 
-  showCounties();
-  resetInfo();
+  // console.log(searcher.value);
+  if (searcher.value === "") {
+    resetInfo();
+    showAllCounties();
+  } else {
+    showCounties();
+    resetInfo();
+  }
 });
 
-showRegion();
+showAllCounties();
 
 buttonBackHome.addEventListener("click", () => {
   searcher.value = "";
   selectRegion.value = optionZero.value;
   optionZero.textContent = "Filter by Region";
-  region = "europe";
-  divCountries.textContent = "";
-  country = "";
+  // region = "";
+  // divCountries.textContent = "";
+  // country = "";
+  resetInfo();
 
-  showRegion();
+  showAllCounties();
   detailsPage.classList.add("invisible");
   homePage.classList.remove("invisible");
 });

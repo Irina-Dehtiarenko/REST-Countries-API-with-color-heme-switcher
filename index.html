@@ -20,13 +20,11 @@
   </head>
 
   <body>
-
     <header>
       <h1>Where in the world?</h1>
 
-      <div class="dark-mode" >
+      <div class="dark-mode">
         <button id="dark_mode">
-
           <i class="fa fa-solid fa-moon" aria-hidden="true"></i>
         </button>
 
@@ -34,50 +32,48 @@
       </div>
     </header>
 
-    
     <main>
-      
       <!-- Home page -->
       <!-- ----------------------- -->
-    <div class="homepage">
-      <div class="choice">
-        <div class="searcher"> 	
+      <div class="homepage">
+        <div class="choice">
+          <div class="searcher">
+            <input
+              type="search"
+              placeholder="&#128269;  Search for a country...  "
+            />
+          </div>
 
-          <input type="search" placeholder="&#128269;  Search for a country...  " >
-
+          <div class="selection">
+            <select
+              name="Filter by Region"
+              aria-placeholder="Filter by Region"
+              id=""
+            >
+              <option class="zero" value="">Filter by Region</option>
+              <option value="africa">Africa</option>
+              <option value="america">America</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="oceania">Oceania</option>
+            </select>
+          </div>
         </div>
 
-        <div class="selection">
-        <select name="Filter by Region" id="">
-          <option class="zero" value=" ">Filter by Region</option>
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
-
-        </select>
-        </div>
+        <div class="countries"></div>
       </div>
 
-      <div class="countries">
-        
-      </div>
-
-    </div>
-      
       <!-- ----------------------- -->
-      
+
       <!-- Details page -->
-      
-      <!-- ----------------------- -->
-      
-    <div class="detail_page invisible">
 
+      <!-- ----------------------- -->
+
+      <div class="detail_page invisible">
         <button class="back_home">
           <i class="fa fa-solid fa-arrow-left"></i> Back Home
         </button>
-        
+
         <div class="details">
           <div class="flag_img"></div>
 
@@ -85,39 +81,36 @@
             <h2 class="name-country">Country</h2>
 
             <div class="all-details">
-             <ul class="main-details">
-               <li class="native-name">Native-name: <span>znaczenie</span> </li>
-               <li class="population">Population: <span>znaczenie</span> </li>
-               <li class="region">Region: <span>znaczenie</span> </li>
-               <li class="sub-region">Sub Region: <span>znaczenie</span>          </li>
-               <li class="capital">Capital: <span>znaczenie</span> </li>
-             </ul>
-             
-             <ul class="other-details">
-               <li class="top-level-domain">Top Level Domain: <span>znaczenie</span> </li>
-               <li class="currencies">Currencies: <span>znaczenie</span> </li>
-               <li class="languages">Languages: <span></span> </li>
-             </ul>
+              <ul class="main-details">
+                <li class="native-name">Native-name: <span>znaczenie</span></li>
+                <li class="population">Population: <span>znaczenie</span></li>
+                <li class="region">Region: <span>znaczenie</span></li>
+                <li class="sub-region">Sub Region: <span>znaczenie</span></li>
+                <li class="capital">Capital: <span>znaczenie</span></li>
+              </ul>
+
+              <ul class="other-details">
+                <li class="top-level-domain">
+                  Top Level Domain: <span>znaczenie</span>
+                </li>
+                <li class="currencies">Currencies: <span>znaczenie</span></li>
+                <li class="languages">Languages: <span></span></li>
+              </ul>
             </div>
 
             <div class="border-countries">
-              <p>Border Countries: </p> 
-              <div class="all-border-countries">
-              <!-- <div class="border-country">Country</div>
-              <div class="border-country">Country</div>
-            <div class="border-country">Country</div> -->
-           </div>
+              <p>Border Countries:</p>
+              <div class="all-border-countries"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-      
-    <!-- ----------------------- -->
-      
+
+      <!-- ----------------------- -->
     </main>
 
     <footer>
-      <!-- <div class="attribution">
+      <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
@@ -125,7 +118,7 @@
         Coded by
         <a href="https://github.com/Irina-Dehtiarenko">Iryna Dehtiarenko</a>.
       </div>
-    </footer> -->
+    </footer>
 
     <script src="./main.js"></script>
   </body>

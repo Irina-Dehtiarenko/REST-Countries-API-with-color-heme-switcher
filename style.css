@@ -1,10 +1,3 @@
-/* - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
-
 :root {
   --dark-blue: hsl(209, 23%, 22%);
   --very-dark-blue: hsl(207, 26%, 17%);
@@ -18,10 +11,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* i {
-  width: 20px;
-  height: 30px;
-} */
 
 body {
   background: var(--very-light-gray);
@@ -148,19 +137,6 @@ body.dark .border-country:hover {
 body.dark .choice input::placeholder {
   color: var(--white);
 }
-/* .choice select::after {
-  border: none;
-  border-radius: 5px;
-  
-} */
-option {
-  /* position: absolute; */
-  /* background-color: DodgerBlue; */
-  /* top: 100%;
-  left: 0;
-  right: 0; */
-  /* z-index: 99; */
-}
 
 div.countries {
   display: flex;
@@ -172,7 +148,7 @@ div.countries {
 div.country {
   margin: 35px;
   width: 270px;
-  height: 330px;
+  height: 350px;
   background-color: var(--white);
   border-radius: 5px;
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
@@ -191,13 +167,9 @@ body.dark div.country:hover {
 div.country .img {
   width: 270px;
   height: 180px;
-  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
-  /* background-color: var(--dark-gray); */
-  /* background-image: url("https://flagcdn.com/hm.svg"); */
-  /* overflow: hidden; */
-
   background-size: cover;
   background-position: center;
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px 5px 0 0;
 }
 div.country h2 {
@@ -207,7 +179,6 @@ div.country h2 {
 
 div.country ul,
 ul {
-  /* padding: 10px 0 10px 20px; */
   font-size: 14px;
   list-style: none;
   line-height: 25px;
@@ -223,9 +194,6 @@ ul li,
   font-weight: bold;
 }
 
-/* .border-countries {
-  padding: 10px 0 10px 15px;
-} */
 span {
   font-weight: lighter;
 }
@@ -245,10 +213,9 @@ button.back_home {
 .flag_img {
   width: 500px;
   height: 350px;
-  /* example */
-  /* background-image: url("https://flagcdn.com/hu.svg"); */
   background-position: center;
   background-size: cover;
+  box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1);
 }
 div.country_details h2 {
   margin: 40px 0;
@@ -278,7 +245,6 @@ div.country_details h2 {
   align-items: center;
   margin: 15px 0;
   font-size: 14px;
-  /* justify-content: center; */
 }
 .all-border-countries {
   display: flex;
@@ -291,10 +257,16 @@ div.country_details h2 {
   border-radius: 5px;
   box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.5);
 }
-/* .border-countries p {
-  margin: 0;
-  padding: 0;
-} */
+
+footer {
+  width: 50%;
+  margin: 80px auto 10px auto;
+}
+
+.attribution {
+  font-size: 12px;
+  text-align: center;
+}
 
 @media (max-width: 1485px) {
   header {
@@ -343,15 +315,11 @@ div.country_details h2 {
   .border-countries {
     flex-direction: column;
   }
-  /* .all-details {
-    width: 300px;
-  } */
 }
 
 @media (max-width: 1068px) {
   .details {
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-between;
   }
   div.country_details {
@@ -363,11 +331,12 @@ div.country_details h2 {
   .all-details {
     flex-direction: row;
     justify-content: space-around;
-    max-width: 600px;
+    max-width: 700px;
   }
 
   .main-details {
-    width: 70%;
+    width: 100%;
+    margin-right: 50px;
   }
   .other-details {
     width: 100%;
@@ -389,10 +358,7 @@ div.country_details h2 {
   .all-details {
     width: 400px;
   }
-  /* .main_details,
-  .other-details {
-    max-width: 30%;
-  } */
+
   .main-details,
   .other-details {
     max-width: 50%;
