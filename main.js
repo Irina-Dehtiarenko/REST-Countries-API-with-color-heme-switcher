@@ -291,7 +291,6 @@ searcher.addEventListener("search", (e) => {
   selectRegion.value = optionZero.value;
   optionZero.textContent = "Filter by Region";
 
-  // console.log(searcher.value);
   if (searcher.value === "") {
     resetInfo();
     showAllCounties();
