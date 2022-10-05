@@ -38,7 +38,7 @@ Users should be able to:
 
 - Mobile main page view - light theme
 
-![Mobile main page view - light theme](./img/screenshots/mobile_main_light.jpg)
+![Mobile main page view - light theme](./img/screenshots/mobile_main_light1.jpg)
 
 - Mobile details page view - dark theme
 
@@ -70,4 +70,4 @@ Users should be able to:
 
 - Git - [Irina-Dehtiarenko](https://github.com/Irina-Dehtiarenko)
 - Frontend Mentor - [@Irina-Dehtiarenko](https://www.frontendmentor.io/profile/Irina-Dehtiarenko)
-- Linkedin - [Iryna Dehtiarenko](linkedin.com/in/iryna-dehtiarenko-7b0486206)
+- Linkedin - [Iryna Dehtiarenko](https://www.linkedin.com/in/iryna-dehtiarenko-7b0486206/)
