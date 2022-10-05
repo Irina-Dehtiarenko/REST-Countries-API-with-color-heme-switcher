@@ -259,8 +259,9 @@ div.country_details h2 {
 }
 
 footer {
+  height: 50px;
   width: 50%;
-  margin: 80px auto 10px auto;
+  margin: 200px auto 10px auto;
 }
 
 .attribution {

@@ -1,54 +1,3 @@
-/* 
-data[i].
- nazwa -   name.common 
-population - population
-region - region
-capital - capital
-
-native name: ??? każdy kraj ma inną ścieżkę
-"name": {
-"common": "Ukraine",
-"official": "Ukraine",
-"nativeName": {
-"ukr": {
-"official": "Україна",
-"common": "Україна"
-}
-}
-}
-
-subregion - subregion
-top level domain - tld[0]
-
-currencies  - inna ścieżka:
-"currencies": {
-"UAH": {
-"name": "Ukrainian hryvnia",
-"symbol": "₴"
-}
-},
-
-languages - tak samo: nie wiem jak
-"languages": {
-"ukr": "Ukrainian"
-},
-
-flag - flags.svg
-
-
-border country:
-
-"borders": [
-"AUT",
-"HRV",
-"ROU",
-"SRB",
-"SVK",
-"SVN",
-"UKR"
-],
-
- */
 let region = "";
 let country = "";
 
@@ -189,11 +138,11 @@ const showCountryCode = () => {
     .catch((err) => console.log(err));
 };
 
-// funktion with show details about searching border country
-
-const showBorderDetails = (e) => {
-  country = e.target.textContent;
-  showCountryCode();
+// the reset function
+const resetInfo = () => {
+  region = "";
+  divCountries.textContent = "";
+  country = "";
 };
 
 // funktion with show border countries
@@ -205,8 +154,12 @@ const showBorder = (border) => {
 
   borderCountry = document.querySelectorAll(".border-country");
 
+  // funktion with show details about searching border country
   borderCountry.forEach((borderName) => {
-    borderName.addEventListener("click", showBorderDetails);
+    borderName.addEventListener("click", (e) => {
+      country = e.target.textContent;
+      showCountryCode();
+    });
   });
 };
 
@@ -239,20 +192,24 @@ const showCountryDetail = (country) => {
       showBorder(border);
     });
   } else {
-    console.log("nie istnieje");
     allBorderCountries.textContent = "No border countries";
   }
 };
-const showDetail = (e) => {
-  const countryDiv = e.target.parentNode;
-  // nie zawsze zadziała, ponieważ jak klikamy w element li, albo jakiś paragraf, to jego rodzicem nie będzie bezpośrednio div.country i w nim nie będzie h2, więc trzeba by było coś wymyślić, dodać do wszyskich elementów klase z nazwą kraju albo coś w tym stylu..???
-
-  const countryH2 = countryDiv.querySelector("h2").textContent;
-  country = countryH2;
+const showDetail = () => {
   homePage.classList.add("invisible");
   detailsPage.classList.remove("invisible");
-
   showCounties();
+
+  buttonBackHome.addEventListener("click", () => {
+    searcher.value = "";
+    selectRegion.value = optionZero.value;
+    optionZero.textContent = "Filter by Region";
+    resetInfo();
+
+    showAllCounties();
+    detailsPage.classList.add("invisible");
+    homePage.classList.remove("invisible");
+  });
 };
 
 // a function that displays all selected countries on the 'home page'
@@ -303,15 +260,11 @@ const showCounty = (countries) => {
   // funktion with show details about searching country
 
   [...document.querySelectorAll(".country")].forEach((countryDet) =>
-    countryDet.addEventListener("click", showDetail)
+    countryDet.addEventListener("click", () => {
+      country = countryDet.querySelector("h2").textContent;
+      showDetail();
+    })
   );
-};
-
-// the reset function
-const resetInfo = () => {
-  region = "";
-  divCountries.textContent = "";
-  country = "";
 };
 
 // function with  region selection
@@ -349,17 +302,3 @@ searcher.addEventListener("search", (e) => {
 });
 
 showAllCounties();
-
-buttonBackHome.addEventListener("click", () => {
-  searcher.value = "";
-  selectRegion.value = optionZero.value;
-  optionZero.textContent = "Filter by Region";
-  // region = "";
-  // divCountries.textContent = "";
-  // country = "";
-  resetInfo();
-
-  showAllCounties();
-  detailsPage.classList.add("invisible");
-  homePage.classList.remove("invisible");
-});
